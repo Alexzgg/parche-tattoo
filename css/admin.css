@@ -1,0 +1,1378 @@
+
+@import url('https://fonts.cdnfonts.com/css/nightfully-haunted');
+@import url('https://fonts.cdnfonts.com/css/mars-project');
+
+/* =====================================================
+   PARCHE DEL TATTOO
+   PANEL DE ADMINISTRACIÓN
+   Diseño: negro, gris y rojo vino
+===================================================== */
+
+/* =====================================================
+   1. VARIABLES GENERALES
+===================================================== */
+
+:root {
+    --negro: #080808;
+    --negro-2: #111111;
+    --gris-oscuro: #1c1c1c;
+    --gris-medio: #444444;
+    --gris-claro: #999999;
+    --blanco: #eeeeee;
+    --blanco-suave: #cccccc;
+
+    --vino: #5d101b;
+    --vino-claro: #8b2635;
+    --rojo-oscuro: #3b0b12;
+
+    --naranja: #ff6a00;
+
+    --texto: #eeeeee;
+    --texto-claro: #dddddd;
+    --muted: #999999;
+
+    --acento: #8b2635;
+    --acento-suave: rgba(139, 38, 53, 0.18);
+
+    --panel: #151515;
+    --borde: #393939;
+
+    --radio: 10px;
+    --fuente: Verdana, Geneva, Tahoma, sans-serif;
+    --fuente-titulo: 'Nightfully Haunted', Georgia, serif;
+
+    --sombra: 3px 3px 0 #000000;
+
+    --fondo: linear-gradient(
+        rgba(0, 0, 0, 0.88),
+        rgba(20, 5, 8, 0.92)
+    );
+}
+
+/* =====================================================
+   2. REINICIO GENERAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.admin-page {
+    min-height: 100vh;
+    color: var(--blanco);
+    font-family: var(--fuente);
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.88),
+            rgba(20, 5, 8, 0.92)
+        ),
+        url('../img/fondo.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.admin-page button,
+.admin-page a,
+.admin-page input,
+.admin-page select,
+.admin-page textarea {
+    font-family: var(--fuente);
+}
+
+.admin-page button,
+.admin-page a {
+    cursor: pointer;
+}
+
+.admin-page img {
+    max-width: 100%;
+}
+
+/* Efecto visual de líneas */
+
+.admin-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.018) 50%,
+        transparent 50%
+    );
+
+    background-size: 100% 4px;
+
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* =====================================================
+   3. DISTRIBUCIÓN PRINCIPAL
+===================================================== */
+
+.admin-layout {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* =====================================================
+   4. MENÚ LATERAL
+===================================================== */
+
+.admin-sidebar {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100vh;
+
+    padding: 22px 16px;
+
+    overflow-y: auto;
+
+    background: rgba(8, 8, 8, 0.97);
+
+    border-right: 1px solid #3b2025;
+
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Marca */
+
+.admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 5px 4px 22px;
+
+    border-bottom: 1px solid #393939;
+}
+
+.admin-brand img {
+    width: 58px;
+    height: 58px;
+
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.admin-brand h2 {
+    margin: 0;
+
+    color: var(--blanco);
+
+    font-family: var(--fuente-titulo);
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.admin-brand h2 span {
+    display: inline;
+    color: var(--vino-claro);
+}
+
+.admin-brand small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--gris-claro);
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+
+/* Usuario administrador */
+
+.admin-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin: 20px 0;
+    padding: 13px;
+
+    background: #171717;
+
+    border: 1px solid #393939;
+    border-left: 3px solid var(--vino-claro);
+    border-radius: 8px;
+}
+
+.admin-user-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    color: white;
+    font-size: 19px;
+
+    background: var(--vino);
+
+    border-radius: 50%;
+}
+
+.admin-user-info {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    gap: 5px;
+}
+
+.admin-user-info strong {
+    color: var(--blanco);
+    font-size: 12px;
+
+    overflow-wrap: anywhere;
+}
+
+.admin-user-info small {
+    color: var(--gris-claro);
+    font-size: 10px;
+
+    overflow-wrap: anywhere;
+}
+
+/* =====================================================
+   5. NAVEGACIÓN
+===================================================== */
+
+.admin-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.admin-menu-title {
+    margin-top: 17px;
+    margin-bottom: 7px;
+    padding: 0 8px;
+
+    color: var(--vino-claro);
+
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.admin-menu a {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    width: 100%;
+    padding: 11px 12px;
+
+    color: var(--blanco-suave);
+
+    font-size: 12px;
+    text-decoration: none;
+
+    background: transparent;
+
+    border: 1px solid transparent;
+    border-radius: 7px;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.admin-menu a i {
+    width: 19px;
+
+    color: var(--vino-claro);
+    font-size: 14px;
+    text-align: center;
+}
+
+.admin-menu a:hover {
+    color: white;
+
+    background: #241317;
+
+    border-color: #57202b;
+
+    transform: translateX(3px);
+}
+
+.admin-menu a:hover i {
+    color: var(--naranja);
+}
+
+.admin-menu a.activo {
+    color: white;
+
+    background: linear-gradient(
+        90deg,
+        var(--vino),
+        #321016
+    );
+
+    border-color: var(--vino-claro);
+    box-shadow: inset 3px 0 0 var(--naranja);
+}
+
+.admin-menu a.activo i {
+    color: white;
+}
+
+/* =====================================================
+   6. CONTENIDO PRINCIPAL
+===================================================== */
+
+.admin-main {
+    min-width: 0;
+    width: 100%;
+
+    padding: 30px;
+
+    overflow-x: hidden;
+}
+
+/* =====================================================
+   7. BARRA SUPERIOR
+===================================================== */
+
+.admin-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+    padding: 24px 26px;
+
+    background: rgba(17, 17, 17, 0.96);
+
+    border: 1px solid #393939;
+    border-left: 5px solid var(--vino-claro);
+    border-radius: var(--radio);
+
+    box-shadow: var(--sombra);
+}
+
+.admin-topbar h1 {
+    margin: 0 0 9px;
+
+    color: var(--blanco);
+
+    font-family: var(--fuente-titulo);
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: normal;
+    line-height: 1.15;
+
+    text-shadow: 3px 3px 0 var(--rojo-oscuro);
+}
+
+.admin-topbar p {
+    color: var(--blanco-suave);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.admin-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-top-actions form {
+    margin: 0;
+}
+
+/* =====================================================
+   8. BOTONES
+===================================================== */
+
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-height: 40px;
+    padding: 10px 16px;
+
+    color: white;
+
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+
+    background: var(--vino);
+
+    border: 1px solid var(--vino-claro);
+    border-radius: 7px;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.admin-btn:hover {
+    color: white;
+    background: var(--vino-claro);
+
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 38, 53, 0.25);
+}
+
+.admin-btn i {
+    font-size: 13px;
+}
+
+.admin-btn-secundario {
+    color: var(--blanco);
+
+    background: #252525;
+
+    border-color: #555;
+}
+
+.admin-btn-secundario:hover {
+    color: white;
+    background: #3a3a3a;
+
+    border-color: #777;
+}
+
+.admin-btn-peligro {
+    color: white;
+
+    background: #721b28;
+
+    border-color: #a52a3a;
+}
+
+.admin-btn-peligro:hover {
+    color: white;
+    background: #a52a3a;
+}
+
+.admin-btn-icono {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    min-height: 36px;
+
+    padding: 0;
+}
+
+/* =====================================================
+   9. ALERTAS
+===================================================== */
+
+.admin-alerta {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    margin-bottom: 22px;
+    padding: 15px 18px;
+
+    color: var(--blanco);
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    background: #202020;
+
+    border: 1px solid #444;
+    border-left: 5px solid var(--vino-claro);
+    border-radius: 7px;
+}
+
+.admin-alerta i {
+    font-size: 17px;
+}
+
+.admin-alerta.success {
+    border-left-color: #3d9956;
+}
+
+.admin-alerta.success i {
+    color: #55c878;
+}
+
+.admin-alerta.danger {
+    border-left-color: #dc3545;
+}
+
+.admin-alerta.danger i {
+    color: #ff5968;
+}
+
+/* =====================================================
+   10. ESTADÍSTICAS
+===================================================== */
+
+.admin-estadisticas {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(190px, 1fr)
+    );
+
+    gap: 17px;
+
+    margin-bottom: 25px;
+}
+
+.admin-stat {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    min-width: 0;
+    padding: 20px 17px;
+
+    background: linear-gradient(
+        145deg,
+        #202020,
+        #111111
+    );
+
+    border: 1px solid #383838;
+    border-bottom: 3px solid var(--vino);
+
+    border-radius: 9px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.admin-stat:hover {
+    transform: translateY(-4px);
+    border-bottom-color: var(--naranja);
+}
+
+.admin-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    color: var(--naranja);
+    font-size: 21px;
+
+    background: rgba(139, 38, 53, 0.18);
+
+    border: 1px solid rgba(139, 38, 53, 0.4);
+    border-radius: 9px;
+}
+
+.admin-stat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    min-width: 0;
+}
+
+.admin-stat-info span {
+    color: var(--gris-claro);
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.admin-stat-info strong {
+    color: white;
+    font-size: 27px;
+    line-height: 1;
+    overflow-wrap: anywhere;
+}
+
+/* =====================================================
+   11. TARJETAS Y PANELES
+===================================================== */
+
+.admin-card {
+    min-width: 0;
+
+    margin-bottom: 24px;
+    padding: 24px;
+
+    color: var(--blanco);
+
+    background: rgba(17, 17, 17, 0.97);
+
+    border: 1px solid #393939;
+    border-radius: var(--radio);
+
+    box-shadow: var(--sombra);
+}
+
+.admin-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    gap: 16px;
+
+    padding-bottom: 17px;
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid #383838;
+}
+
+.admin-card-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin: 0 0 9px;
+
+    color: white;
+
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.admin-card-header h2 i {
+    color: var(--naranja);
+}
+
+.admin-description {
+    color: var(--gris-claro);
+
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* =====================================================
+   12. MÓDULOS DE ADMINISTRACIÓN
+===================================================== */
+
+.admin-modulos {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(175px, 1fr)
+    );
+
+    gap: 14px;
+}
+
+.admin-modulo {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    min-width: 0;
+    min-height: 66px;
+    padding: 15px;
+
+    color: var(--blanco-suave);
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+
+    background: linear-gradient(
+        145deg,
+        #222222,
+        #151515
+    );
+
+    border: 1px solid #3c3c3c;
+    border-left: 3px solid var(--vino);
+
+    border-radius: 8px;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.admin-modulo i {
+    flex-shrink: 0;
+
+    color: var(--naranja);
+    font-size: 19px;
+}
+
+.admin-modulo span {
+    overflow-wrap: anywhere;
+}
+
+.admin-modulo:hover {
+    color: white;
+
+    background: #32151c;
+
+    border-color: var(--vino-claro);
+
+    transform: translateY(-3px);
+}
+
+/* =====================================================
+   13. FORMULARIOS
+===================================================== */
+
+.admin-formulario {
+    display: grid;
+
+    grid-template-columns: repeat(
+        2,
+        minmax(0, 1fr)
+    );
+
+    gap: 19px;
+}
+
+.admin-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    min-width: 0;
+}
+
+.admin-campo.completo {
+    grid-column: 1 / -1;
+}
+
+.admin-campo > label {
+    color: var(--blanco);
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.admin-campo input:not([type="file"]),
+.admin-campo select,
+.admin-campo textarea {
+    width: 100%;
+    min-width: 0;
+    min-height: 42px;
+
+    padding: 11px 13px;
+
+    color: var(--blanco);
+
+    font-family: var(--fuente);
+    font-size: 12px;
+
+    background: #222222;
+
+    border: 1px solid #505050;
+    border-radius: 7px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.admin-campo input::placeholder,
+.admin-campo textarea::placeholder {
+    color: #888888;
+}
+
+.admin-campo input:focus,
+.admin-campo select:focus,
+.admin-campo textarea:focus {
+    background: #292929;
+
+    border-color: var(--vino-claro);
+
+    box-shadow: 0 0 0 3px rgba(139, 38, 53, 0.2);
+}
+
+.admin-campo select option {
+    color: white;
+    background: #1c1c1c;
+}
+
+.admin-campo textarea {
+    min-height: 115px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.admin-ayuda {
+    color: var(--gris-claro);
+
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+/* =====================================================
+   14. CARGA DE IMÁGENES
+===================================================== */
+
+.admin-imagen-contenedor {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    padding: 16px;
+
+    background: #1c1c1c;
+
+    border: 1px dashed #555;
+    border-radius: 8px;
+}
+
+.admin-imagen-preview {
+    width: 125px;
+    height: 125px;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    background: #111;
+
+    border: 2px solid var(--vino);
+    border-radius: 8px;
+}
+
+.admin-imagen-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 11px;
+
+    min-width: 0;
+    flex: 1;
+}
+
+.admin-imagen-info p {
+    color: var(--gris-claro);
+
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.admin-file-input {
+    display: none;
+}
+
+.admin-file-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 15px;
+
+    color: white;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    background: var(--vino);
+
+    border: 1px solid var(--vino-claro);
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.admin-file-label:hover {
+    background: var(--vino-claro);
+}
+
+.admin-nombre-archivo {
+    max-width: 100%;
+
+    color: var(--gris-claro);
+
+    font-size: 10px;
+    overflow-wrap: anywhere;
+}
+
+/* =====================================================
+   15. TABLAS
+===================================================== */
+
+.admin-tabla-contenedor {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: #151515;
+
+    border: 1px solid #3e3e3e;
+    border-radius: 8px;
+}
+
+.admin-tabla {
+    width: 100%;
+    min-width: 900px;
+
+    border-collapse: collapse;
+
+    color: var(--blanco);
+
+    font-size: 11px;
+}
+
+.admin-tabla th,
+.admin-tabla td {
+    max-width: 280px;
+
+    padding: 13px 12px;
+
+    text-align: left;
+    vertical-align: middle;
+
+    overflow-wrap: anywhere;
+
+    border-bottom: 1px solid #383838;
+}
+
+.admin-tabla th {
+    position: sticky;
+    top: 0;
+
+    color: white;
+
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+
+    background: var(--rojo-oscuro);
+
+    white-space: nowrap;
+}
+
+.admin-tabla tbody tr {
+    background: #171717;
+
+    transition: background 0.2s ease;
+}
+
+.admin-tabla tbody tr:nth-child(even) {
+    background: #202020;
+}
+
+.admin-tabla tbody tr:hover {
+    background: #302024;
+}
+
+.admin-tabla tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-tabla-imagen {
+    display: block;
+
+    width: 58px;
+    height: 58px;
+
+    object-fit: cover;
+
+    background: #111;
+
+    border: 1px solid #555;
+    border-radius: 6px;
+}
+
+/* =====================================================
+   16. ETIQUETAS DE ESTADO
+===================================================== */
+
+.admin-etiqueta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px 9px;
+
+    color: #dddddd;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    background: #343434;
+
+    border: 1px solid #555;
+    border-radius: 20px;
+
+    white-space: nowrap;
+}
+
+.admin-activo {
+    color: #8be0a0;
+
+    background: rgba(45, 140, 70, 0.15);
+
+    border-color: rgba(75, 180, 100, 0.4);
+}
+
+.admin-inactivo {
+    color: #ff9a9a;
+
+    background: rgba(180, 40, 50, 0.15);
+
+    border-color: rgba(180, 40, 50, 0.4);
+}
+
+/* =====================================================
+   17. ACCIONES DE LA TABLA
+===================================================== */
+
+.admin-acciones {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.admin-form-accion {
+    display: inline-flex;
+    margin: 0;
+}
+
+/* =====================================================
+   18. PIE DE PÁGINA
+===================================================== */
+
+.admin-pie {
+    padding: 20px 10px;
+    margin-top: 10px;
+
+    color: var(--gris-claro);
+
+    font-size: 10px;
+    text-align: center;
+
+    border-top: 1px solid #393939;
+}
+
+/* =====================================================
+   19. SCROLLBAR
+===================================================== */
+
+.admin-page * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--vino-claro) #171717;
+}
+
+.admin-page ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.admin-page ::-webkit-scrollbar-track {
+    background: #171717;
+}
+
+.admin-page ::-webkit-scrollbar-thumb {
+    background: var(--vino);
+    border: 1px solid #080808;
+    border-radius: 6px;
+}
+
+.admin-page ::-webkit-scrollbar-thumb:hover {
+    background: var(--vino-claro);
+}
+
+/* =====================================================
+   20. ANIMACIONES
+===================================================== */
+
+.admin-topbar,
+.admin-stat,
+.admin-card {
+    animation: admin-entrada 0.4s ease both;
+}
+
+@keyframes admin-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(9px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================================
+   21. ACCESIBILIDAD
+===================================================== */
+
+.admin-page button:focus-visible,
+.admin-page a:focus-visible,
+.admin-page input:focus-visible,
+.admin-page select:focus-visible,
+.admin-page textarea:focus-visible {
+    outline: 2px solid var(--naranja);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .admin-page *,
+    .admin-page *::before,
+    .admin-page *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =====================================================
+   22. RESPONSIVE - TABLETS
+===================================================== */
+
+@media (max-width: 1050px) {
+    .admin-layout {
+        grid-template-columns: 230px minmax(0, 1fr);
+    }
+
+    .admin-main {
+        padding: 22px;
+    }
+
+    .admin-sidebar {
+        padding: 18px 12px;
+    }
+
+    .admin-estadisticas {
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(165px, 1fr)
+        );
+    }
+}
+
+@media (max-width: 800px) {
+    .admin-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-sidebar {
+        position: relative;
+
+        height: auto;
+        max-height: none;
+
+        padding: 15px;
+    }
+
+    .admin-brand {
+        padding-bottom: 15px;
+    }
+
+    .admin-user {
+        margin: 14px 0;
+    }
+
+    .admin-menu {
+        display: grid;
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(145px, 1fr)
+        );
+
+        gap: 7px;
+    }
+
+    .admin-menu-title {
+        grid-column: 1 / -1;
+    }
+
+    .admin-main {
+        padding: 18px;
+    }
+}
+
+/* =====================================================
+   23. RESPONSIVE - CELULARES
+===================================================== */
+
+@media (max-width: 600px) {
+    .admin-main {
+        padding: 12px;
+    }
+
+    .admin-topbar {
+        align-items: flex-start;
+        flex-direction: column;
+
+        padding: 18px;
+    }
+
+    .admin-topbar h1 {
+        font-size: 34px;
+    }
+
+    .admin-top-actions,
+    .admin-top-actions form {
+        width: 100%;
+    }
+
+    .admin-top-actions .admin-btn {
+        width: 100%;
+    }
+
+    .admin-estadisticas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .admin-stat {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 10px;
+
+        padding: 14px 11px;
+    }
+
+    .admin-stat-icon {
+        width: 39px;
+        height: 39px;
+
+        font-size: 17px;
+    }
+
+    .admin-stat-info strong {
+        font-size: 23px;
+    }
+
+    .admin-stat-info span {
+        font-size: 10px;
+    }
+
+    .admin-card {
+        padding: 15px;
+    }
+
+    .admin-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-card-header > .admin-btn {
+        width: 100%;
+    }
+
+    .admin-card-header h2 {
+        font-size: 16px;
+    }
+
+    .admin-modulos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .admin-modulo {
+        min-height: 60px;
+        padding: 11px;
+
+        font-size: 10px;
+    }
+
+    .admin-modulo i {
+        font-size: 16px;
+    }
+
+    .admin-formulario {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .admin-campo.completo {
+        grid-column: auto;
+    }
+
+    .admin-imagen-contenedor {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-imagen-preview {
+        width: 110px;
+        height: 110px;
+    }
+
+    .admin-tabla {
+        min-width: 750px;
+    }
+
+    .admin-pie {
+        font-size: 9px;
+    }
+}
+
+/* =====================================================
+   24. PANTALLAS MUY PEQUEÑAS
+===================================================== */
+
+@media (max-width: 380px) {
+    .admin-estadisticas {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-modulos {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-menu {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-topbar h1 {
+        font-size: 29px;
+    }
+
+    .admin-brand h2 {
+        font-size: 21px;
+    }
+}

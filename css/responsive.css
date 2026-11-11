@@ -1,0 +1,621 @@
+/* =========================================================
+   PARCHE DEL TATTOO
+   RESPONSIVE
+   ESTILO MYSPACE / SPACEHEY 2000s
+   ========================================================= */
+
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+   @media (max-width: 1100px) {
+
+    header {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        padding: 12px 20px;
+    }
+
+    .logo {
+        width: auto;
+    }
+
+    .buscador {
+        order: 2;
+
+        max-width: 350px;
+    }
+
+    nav {
+        order: 3;
+
+        width: 100%;
+    }
+
+    section,
+    .module {
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+
+    .caracteristicas {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+
+    .galeria .contenedor {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .blog-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+
+    .galeria-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .piercing-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .cuidados-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .footer-contenedor {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   TABLETS PEQUEÑAS
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    header {
+        position: relative;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .logo {
+        justify-content: center;
+    }
+
+    .buscador {
+        width: 100%;
+
+        max-width: 500px;
+    }
+
+    nav {
+        gap: 5px;
+    }
+
+    .hero {
+        min-height: 360px;
+
+        padding: 35px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+
+    #carouselTattoo {
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+
+    .carousel-item img {
+        height: 330px;
+    }
+
+    .contacto {
+        grid-template-columns: 1fr;
+    }
+
+    .login-container {
+        max-width: 700px;
+
+        grid-template-columns: 1fr;
+    }
+
+    .login-left {
+        padding: 35px;
+    }
+
+    .login-left img {
+        width: 120px;
+
+        margin-top: 15px;
+    }
+
+    .login-right {
+        padding: 35px;
+    }
+
+    .perfil-info {
+        align-items: flex-start;
+    }
+}
+
+
+/* =========================================================
+   CELULARES
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+    body {
+        font-size: 14px;
+    }
+
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    header {
+        padding: 12px;
+
+        gap: 10px;
+    }
+
+    .logo {
+        width: 100%;
+    }
+
+    .logo-img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .logo h2 {
+        font-size: 1.35rem;
+    }
+
+    .buscador {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 5px;
+    }
+
+    nav a {
+        justify-content: center;
+
+        font-size: .72rem;
+
+        padding: 7px 5px;
+    }
+
+
+    /* =========================
+       SECCIONES
+       ========================= */
+
+    section,
+    .module {
+        margin: 15px 10px;
+
+        padding: 17px 13px;
+
+        border-radius: 5px;
+    }
+
+    section > h1 {
+        font-size: 1.8rem;
+
+        text-align: center;
+    }
+
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+        margin: 15px 10px;
+
+        min-height: 360px;
+
+        padding: 30px 15px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: .9rem;
+    }
+
+    .hero .btn-tattoo,
+    .hero .btn-principal,
+    .hero .btn-secundario {
+        display: block;
+
+        width: 100%;
+
+        margin: 7px 0;
+    }
+
+
+    /* =========================
+       CAROUSEL
+       ========================= */
+
+    #carouselTattoo {
+        margin: 15px 10px;
+
+        border-width: 2px;
+    }
+
+    .carousel-item img {
+        height: 250px;
+    }
+
+
+    /* =========================
+       CARACTERISTICAS
+       ========================= */
+
+    .caracteristicas {
+        grid-template-columns: 1fr;
+
+        padding: 15px 10px;
+
+        margin: 15px 10px;
+    }
+
+
+    /* =========================
+       GALERIA
+       ========================= */
+
+    .galeria .contenedor {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 9px;
+    }
+
+    .tattoo.usuario-card img {
+        height: 160px;
+    }
+
+
+    /* =========================
+       BLOG
+       ========================= */
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+
+        margin: 15px 10px;
+    }
+
+
+    /* =========================
+       DISEÑOS
+       ========================= */
+
+    .galeria-page {
+        margin: 15px 10px;
+
+        padding: 15px 10px;
+    }
+
+    .filtros {
+        flex-direction: column;
+    }
+
+    .filtros input,
+    .filtros select {
+        width: 100%;
+    }
+
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .item img {
+        height: 280px;
+    }
+
+
+    /* =========================
+       COMUNIDAD
+       ========================= */
+
+    .comunidad {
+        margin: 15px 10px;
+    }
+
+    .publicacion {
+        margin: 0;
+
+        padding: 12px;
+    }
+
+    .publicacion > img {
+        max-height: 350px;
+    }
+
+    .botones {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 5px;
+    }
+
+    .botones button {
+        font-size: .68rem;
+
+        padding: 6px 3px;
+    }
+
+
+    /* =========================
+       FORO
+       ========================= */
+
+    .nueva-publicacion,
+    .post {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
+    /* =========================
+       PERFIL
+       ========================= */
+
+    .perfil {
+        margin: 15px 10px;
+    }
+
+    .perfil .portada {
+        height: 180px;
+    }
+
+    .perfil-info {
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+
+        padding: 15px;
+    }
+
+    .perfil .foto {
+        width: 110px;
+        height: 110px;
+
+        margin-top: -55px;
+    }
+
+    .estadisticas {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+
+    /* =========================
+       PIERCINGS
+       ========================= */
+
+    .piercing {
+        margin: 15px 10px;
+
+        padding: 15px 10px;
+    }
+
+    .piercing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cuidados {
+        margin: 15px 10px;
+
+        padding: 15px 10px;
+    }
+
+    .cuidados-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* =========================
+       CONTACTO
+       ========================= */
+
+    .contacto {
+        grid-template-columns: 1fr;
+    }
+
+    .mapa iframe {
+        min-height: 230px;
+
+        height: 230px;
+    }
+
+
+    /* =========================
+       LOGIN
+       ========================= */
+
+    .login-body {
+        padding: 12px;
+    }
+
+    .login-container {
+        grid-template-columns: 1fr;
+
+        box-shadow:
+            5px 5px 0 #000;
+    }
+
+    .login-left {
+        padding: 30px 18px;
+    }
+
+    .login-left h1 {
+        font-size: 2.2rem;
+    }
+
+    .login-left img {
+        width: 100px;
+    }
+
+    .login-right {
+        padding: 25px 18px;
+    }
+
+    .opciones {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer {
+        margin: 20px 10px;
+    }
+
+    .footer-contenedor {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .footer-logos {
+        align-items: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .redes,
+    .redes-contacto {
+        justify-content: center;
+    }
+}
+
+
+/* =========================================================
+   CELULARES MUY PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .logo-img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .logo h2 {
+        font-size: 1.05rem;
+    }
+
+    nav {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    nav a {
+        font-size: .65rem;
+
+        padding: 6px 3px;
+    }
+
+    .hero h1 {
+        font-size: 1.65rem;
+    }
+
+    .hero p {
+        font-size: .8rem;
+    }
+
+    .galeria .contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    .tattoo.usuario-card img {
+        height: 220px;
+    }
+
+    .botones {
+        grid-template-columns: 1fr;
+    }
+
+    .login-left h1 {
+        font-size: 1.8rem;
+    }
+
+    button,
+    .btn-tattoo,
+    .btn-principal,
+    .btn-secundario {
+        padding: 8px 12px;
+
+        font-size: .8rem;
+    }
+}
+
+
+/* =========================================================
+   REDUCIR MOVIMIENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+
+        transition: none !important;
+    }
+}
